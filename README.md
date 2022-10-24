@@ -4,20 +4,17 @@ This application is a coin game, you flip a coin to see which side it lands on (
 
 ### Game preview
 
-![Preview](img/preview.png)
-![Preview](img/preview2.png)
+![Preview](src/assets/img/index.png)
+![Preview](src/assets/img/game.png)
 
 ### Flowchart
 
-![Flowchart](img/flowchart.png)
+![Flowchart](src/assets/img/flowchart.png)
 
 ## How can I play?
 
-Clone this repository
-```commandline
-git clone https://github.com/JhonCamargo07/heads-tails-python
-```
+[you can play here](http://senasoft-libre.000webhostapp.com/)
 
-Open the file 'heads-tails.exe'
+<!-- Open the file 'heads-tails.exe' -->
 
 By [Jhon Camargo](https://jhoncamargo.000webhostapp.com/)
