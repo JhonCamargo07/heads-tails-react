@@ -150,6 +150,7 @@ export default function Main() {
 		}
 
 		setgamesPlayed(++gamesPlayed);
+
 		// Agregar los datos a la tabla
 		setGameData(
 			gameData.concat([
@@ -170,7 +171,6 @@ export default function Main() {
 			<InformationGame gamesPlayed={gamesPlayed} currentValue={currentValue} />{' '}
 			<div className="container">
 				<div className="row background py-5 mt-5">
-					{/* </div> */}
 					<div className="col-md-6 d-flex align-items-center justify-content-center">
 						<Coin sideCoin={imgSideCoin} />
 					</div>

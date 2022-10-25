@@ -3,6 +3,7 @@ import React from 'react';
 export default function InformationGame({ gamesPlayed, currentValue }) {
 	return (
 		<>
+			<i class="fas fa-power-off text-light btn-restart" title="Iniciar nuevamente la partida" aria-hidden="true"></i>
 			<div className="row">
 				<div className="col-md-3"></div>
 				<div className="col-md-6">
