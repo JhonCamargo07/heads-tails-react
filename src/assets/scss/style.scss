@@ -1,3 +1,129 @@
-// .container{
-//     view
-// }
+@import url(https://fonts.googleapis.com/css?family=Chela+One:regular);
+$green: #006100;
+$green-2: #004900;
+
+@mixin grid($cols, $gap) {
+	display: grid;
+	grid-template-columns: repeat($cols, 1fr);
+	gap: $gap;
+	@media screen and (max-width: 480px) {
+		grid-template-columns: 1fr;
+		// gap: 0em;
+	}
+}
+
+@mixin flex($direction: column, $corte: wrap, $just: center, $align: center) {
+	display: flex;
+	flex-flow: $direction $corte;
+	justify-content: $just;
+	align-items: $align;
+}
+
+@mixin responsive($width: 480px) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}
+
+@mixin responsiveFull($width: 1601px) {
+	@media screen and (min-width: $width) {
+		@content;
+	}
+}
+
+body {
+	font-family: 'Chela One', cursive;
+	font-size: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #fff;
+}
+p,
+label {
+	color: #fff;
+}
+
+label {
+	font-size: 1.375rem;
+}
+
+small {
+	font-size: 1.375rem;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+.form-control {
+	font-size: 1.5625rem;
+	// line-height: 2.25rem;
+	width: 50%;
+	-webkit-appearance: textfield !important;
+	margin: auto;
+	-moz-appearance: textfield !important;
+	// height: 3.125rem;
+	// display: table-cell;
+	// vertical-align: middle;
+}
+
+.bg-success {
+	background: $green !important;
+}
+
+.background {
+	background-color: #005400;
+}
+
+.card {
+	text-align: center;
+	background-color: #005400;
+	padding: 1.25rem;
+	@include responsive(468px) {
+		padding: 0.3125rem;
+	}
+}
+
+.home {
+	// width: 100vh;
+	padding-top: 90px;
+	padding-bottom: 90px;
+	margin-top: 120px;
+	@include responsive(93.75rem) {
+		padding-top: 70px;
+		padding-bottom: 70px;
+		margin-top: 70px;
+	}
+	@include responsive(65.625rem) {
+		padding-top: 60px;
+		padding-bottom: 60px;
+		margin-top: 60px;
+	}
+	@include responsive(768px) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	@include responsive(468px) {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+}
+
+.img-fluid {
+	width: 200px;
+}
