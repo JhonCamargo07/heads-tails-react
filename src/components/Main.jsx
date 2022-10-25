@@ -59,8 +59,9 @@ export default function Main() {
 
 	// Reiniciar la partida
 	const restartGame = () => {
-		setCurrentValue(0);
+		setGameData([]);
 		setgamesPlayed(0);
+		setCurrentValue(0);
 		setImgSideCoin(coinGif);
 	};
 
@@ -150,6 +151,7 @@ export default function Main() {
 		}
 
 		setgamesPlayed(++gamesPlayed);
+
 		// Agregar los datos a la tabla
 		setGameData(
 			gameData.concat([
@@ -167,11 +169,13 @@ export default function Main() {
 
 	return (
 		<>
-			<i class="fas fa-power-off text-light btn-restart" title="Iniciar nuevamente la partida" onClick={restartGame}></i>
+			<i
+				className="fas fa-power-off text-light btn-restart"
+				title="Iniciar nuevamente la partida"
+				onClick={restartGame}></i>
 			<InformationGame gamesPlayed={gamesPlayed} currentValue={currentValue} />{' '}
 			<div className="container">
 				<div className="row background py-5 mt-5">
-					{/* </div> */}
 					<div className="col-md-6 d-flex align-items-center justify-content-center">
 						<Coin sideCoin={imgSideCoin} />
 					</div>

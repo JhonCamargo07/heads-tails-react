@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Chela+One:regular);
 $green: #006100;
 $green-2: #004900;
+$white: #fff;
 
 @mixin grid($cols, $gap) {
 	display: grid;
@@ -34,6 +35,13 @@ $green-2: #004900;
 body {
 	font-family: 'Chela One', cursive;
 	font-size: 2rem;
+	position: relative;
+	padding-bottom: 5em;
+	min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+	display: none;
 }
 
 h1,
@@ -42,11 +50,11 @@ h3,
 h4,
 h5,
 h6 {
-	color: #fff;
+	color: $white;
 }
 p,
 label {
-	color: #fff;
+	color: $white;
 }
 
 label {
@@ -126,6 +134,7 @@ input[type='number'] {
 
 .img-fluid {
 	width: 200px;
+	padding: 0.625rem;
 }
 
 .btn-restart {
@@ -133,4 +142,36 @@ input[type='number'] {
 	left: 10px;
 	top: 10px;
 	cursor: pointer;
+	z-index: 100;
+	font-size: 1.5rem;
+	background-color: $green-2;
+	padding: 0.3125rem;
+	border-radius: 100%;
+}
+
+footer {
+	margin-top: 1.25rem;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	padding: 0 10px;
+	& p {
+		margin: 0.3125rem 0;
+		font-size: 1.5rem;
+		& a {
+			color: $white;
+			border-bottom: 1px solid transparent;
+			text-decoration: none;
+			&:hover {
+				color: $white;
+				border-bottom: 1px solid $white;
+			}
+		}
+	}
+}
+
+img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]
+{
+	display: none;
 }
