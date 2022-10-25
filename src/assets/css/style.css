@@ -1,17 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Chela+One:regular);
-
-img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"]
-{
-	display: none;
-}
-.required {
-	font-weight: bold;
-	color: #ff0000;
-}
-
 body {
-	font-family: 'Chela One', cursive;
-	font-size: 2rem;
+  font-family: "Chela One", cursive;
+  font-size: 2rem;
 }
 
 h1,
@@ -20,102 +10,102 @@ h3,
 h4,
 h5,
 h6 {
-	color: #fff;
+  color: #fff;
 }
 
 p,
 label {
-	color: #fff;
+  color: #fff;
 }
 
 label {
-	font-size: 1.375rem;
+  font-size: 1.375rem;
 }
 
 small {
-	font-size: 1.375rem;
+  font-size: 1.375rem;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-input[type='number'] {
-	-moz-appearance: textfield;
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .form-control {
-	font-size: 1.5625rem;
-	width: 50%;
-	-webkit-appearance: textfield !important;
-	margin: auto;
-	-moz-appearance: textfield !important;
+  font-size: 1.5625rem;
+  width: 50%;
+  -webkit-appearance: textfield !important;
+  margin: auto;
+  -moz-appearance: textfield !important;
 }
 
 .bg-success {
-	background: #006100 !important;
+  background: #006100 !important;
 }
 
 .background {
-	background-color: #005400;
+  background-color: #005400;
 }
 
 .card {
-	text-align: center;
-	background-color: #005400;
-	padding: 1.25rem;
+  text-align: center;
+  background-color: #005400;
+  padding: 1.25rem;
 }
 @media screen and (max-width: 468px) {
-	.card {
-		padding: 0.3125rem;
-	}
+  .card {
+    padding: 0.3125rem;
+  }
 }
 
 .home {
-	padding-top: 90px;
-	padding-bottom: 90px;
-	margin-top: 120px;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  margin-top: 120px;
 }
 @media screen and (max-width: 93.75rem) {
-	.home {
-		padding-top: 70px;
-		padding-bottom: 70px;
-		margin-top: 70px;
-	}
+  .home {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin-top: 70px;
+  }
 }
 @media screen and (max-width: 65.625rem) {
-	.home {
-		padding-top: 60px;
-		padding-bottom: 60px;
-		margin-top: 60px;
-	}
+  .home {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-top: 60px;
+  }
 }
 @media screen and (max-width: 768px) {
-	.home {
-		padding-top: 50px;
-		padding-bottom: 50px;
-		margin-top: 30px;
-		margin-bottom: 30px;
-	}
+  .home {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 }
 @media screen and (max-width: 468px) {
-	.home {
-		padding-top: 20px;
-		padding-bottom: 20px;
-		margin-top: 15px;
-		margin-bottom: 15px;
-	}
+  .home {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 }
 
 .img-fluid {
-	width: 200px;
+  width: 200px;
 }
 
 .btn-restart {
-	position: absolute;
-	left: 10px;
-	top: 10px;
-	cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
 }
