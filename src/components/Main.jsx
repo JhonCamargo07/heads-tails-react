@@ -5,6 +5,7 @@ import Coin from './Coin';
 import Swal from 'sweetalert2';
 import coinCara from './../assets/img/cara.png';
 import coinSello from './../assets/img/sello.png';
+import coinGif from './../assets/img/moneda.gif';
 import Datatable from './DataTable';
 
 export default function Main() {
@@ -13,7 +14,7 @@ export default function Main() {
 
 	const MAX_MAGES = 100;
 	const [optionUser, setOptionUser] = useState(undefined);
-	const [imgSideCoin, setImgSideCoin] = useState(coinCara);
+	const [imgSideCoin, setImgSideCoin] = useState(coinGif);
 	const [gameData, setGameData] = useState([]);
 
 	// Configuracion para la tabla
@@ -60,8 +61,7 @@ export default function Main() {
 	const restartGame = () => {
 		setCurrentValue(0);
 		setgamesPlayed(0);
-		setImgSideCoin(coinCara);
-		showAlert('success', `Muchos intentos, vamos de nuevo`);
+		setImgSideCoin(coinGif);
 	};
 
 	// Metodo para cambiar la imagen segun la cara que caiga
@@ -127,14 +127,14 @@ export default function Main() {
 
 	// Obtener el ganador de la partida
 	const getWinner = (valueToBet) => {
+		if (gamesPlayed >= MAX_MAGES) {
+			showAlert('success', `Muchos intentos, vamos de nuevo`);
+			return restartGame();
+		}
 		// Almacenar los datos parcialmente para pasarselos a la tabla
 		let isWinner;
 		let newValueCurrentValue;
 		let initialBalance = currentValue;
-
-		if (gamesPlayed >= MAX_MAGES) {
-			return restartGame();
-		}
 
 		const side = getSideRandom();
 		changeImgCoin(side);
@@ -168,6 +168,7 @@ export default function Main() {
 
 	return (
 		<>
+			<i class="fas fa-power-off text-light btn-restart" title="Iniciar nuevamente la partida" onClick={restartGame}></i>
 			<InformationGame gamesPlayed={gamesPlayed} currentValue={currentValue} />{' '}
 			<div className="container">
 				<div className="row background py-5 mt-5">
