@@ -2,6 +2,11 @@
 
 This application is a coin game, you flip a coin to see which side it lands on (heads or tails).
 
+### Mockups
+
+![Preview Mockups](src/assets/img/index-mockup.png)
+![Preview Mockups](src/assets/img/game-mockup.png)
+
 ### Game preview
 
 ![Preview](src/assets/img/index.png)
