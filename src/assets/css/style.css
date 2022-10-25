@@ -102,3 +102,10 @@ input[type=number] {
 .img-fluid {
   width: 200px;
 }
+
+.btn-restart {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  cursor: pointer;
+}
