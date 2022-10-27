@@ -76,10 +76,10 @@ export default function Main() {
 	// Mostrar alerta que dura 3 segundos
 	const showAlert = (icon, message) => {
 		const Toast = Swal.mixin({
-			toast: true,
+			toast: false,
 			position: 'top-end',
 			showConfirmButton: false,
-			timer: 3000,
+			timer: 2000,
 			timerProgressBar: true,
 			didOpen: (toast) => {
 				toast.addEventListener('mouseenter', Swal.stopTimer);
@@ -193,6 +193,9 @@ export default function Main() {
 
 										if (!values.valueBet || values.valueBet <= 0) {
 											errors.valueBet = '¿Cuanto vas a apostar?';
+										}
+										if (values.valueBet > 9999999999) {
+											errors.valueBet = 'Apuesta un poco menos';
 										}
 
 										return errors;
