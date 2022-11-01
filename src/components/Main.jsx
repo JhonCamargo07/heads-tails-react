@@ -12,20 +12,18 @@ export default function Main() {
 	let [gamesPlayed, setgamesPlayed] = useState(0);
 	let [currentValue, setCurrentValue] = useState(0);
 
-	const MAX_MAGES = 100;
+	const MAX_GAMES = 100;
 	const [optionUser, setOptionUser] = useState(undefined);
 	const [imgSideCoin, setImgSideCoin] = useState(coinGif);
 	const [gameData, setGameData] = useState([]);
 
-	// Configuracion para la tabla
-	const optionsPagination = {
+	const settingsForTheTable = {
 		rowsPerPageText: 'Filas por p\u00e1ginas',
 		rangeSeparatorText: 'de',
 		selectAllRowsItem: false,
 		selectALlRowsItemText: 'Todos',
 	};
 
-	// Definicion de las columnas de la tabla de los datos
 	const columnsDataTable = [
 		{
 			name: '#',
@@ -53,11 +51,6 @@ export default function Main() {
 		},
 	];
 
-	// window.addEventListener('beforeunload', function (e) {
-	// 	setgamesPlayed(0);
-	// });
-
-	// Reiniciar la partida
 	const restartGame = () => {
 		setGameData([]);
 		setgamesPlayed(0);
@@ -65,16 +58,14 @@ export default function Main() {
 		setImgSideCoin(coinGif);
 	};
 
-	// Metodo para cambiar la imagen segun la cara que caiga
-	const changeImgCoin = (winner) => {
+	const changeCoinImage = (winner) => {
 		if (winner === 'CARA') {
 			return setImgSideCoin(coinCara);
 		}
 		setImgSideCoin(coinSello);
 	};
 
-	// Mostrar alerta que dura 3 segundos
-	const showAlert = (icon, message) => {
+	const showAlertForThreeSeconds = (icon, message) => {
 		const Toast = Swal.mixin({
 			toast: false,
 			position: 'top-end',
@@ -92,22 +83,22 @@ export default function Main() {
 		});
 	};
 
-	// Duplicar el valor apostado al ganador
 	const addBetToWinner = (valueToBet) => {
 		valueToBet = valueToBet * 2;
 		setCurrentValue(currentValue + valueToBet);
 		return currentValue + valueToBet;
 	};
 
-	// Restar lo apostado al ganador
 	const subtractBetToLoser = (valueToBet) => {
-		console.log(`Antes de actualizarlo: ${currentValue}`);
+		if (gameData.length === 0) {
+			setCurrentValue(0);
+			return 0;
+		}
 		setCurrentValue(currentValue - valueToBet);
 		return currentValue - valueToBet;
 	};
 
-	// Obtener el lado de la moneda (hacer girar la moneda)
-	const getSideRandom = () => {
+	const getRandomCoinSide = () => {
 		const SIDES = [];
 
 		const NUM_MAX_RANDOM = Math.floor(Math.random() * (20 - 5 + 1) + 5);
@@ -126,10 +117,9 @@ export default function Main() {
 		return SIDES[positionRandom];
 	};
 
-	// Obtener el ganador de la partida
 	const getWinner = (valueToBet) => {
-		if (gamesPlayed >= MAX_MAGES) {
-			showAlert('success', `Muchos intentos, vamos de nuevo`);
+		if (gamesPlayed >= MAX_GAMES) {
+			showAlertForThreeSeconds('success', `Muchos intentos, vamos de nuevo`);
 			return restartGame();
 		}
 		// Almacenar los datos parcialmente para pasarselos a la tabla
@@ -137,22 +127,21 @@ export default function Main() {
 		let newValueCurrentValue;
 		let initialBalance = currentValue;
 
-		const side = getSideRandom();
-		changeImgCoin(side);
+		const side = getRandomCoinSide();
+		changeCoinImage(side);
 
 		if (side === optionUser) {
 			newValueCurrentValue = addBetToWinner(valueToBet);
 			isWinner = 'Verdadero';
-			showAlert('success', `Cay\u00f3 ${side.toLowerCase()}, Ganaste`);
+			showAlertForThreeSeconds('success', `Cay\u00f3 ${side.toLowerCase()}, Ganaste`);
 		} else {
 			isWinner = 'Falso';
-			showAlert('error', `Cay\u00f3 ${side.toLowerCase()}, Perdiste`);
+			showAlertForThreeSeconds('error', `Cay\u00f3 ${side.toLowerCase()}, Perdiste`);
 			newValueCurrentValue = subtractBetToLoser(valueToBet);
 		}
 
 		setgamesPlayed(++gamesPlayed);
 
-		// Agregar los datos a la tabla
 		setGameData(
 			gameData.concat([
 				{
@@ -255,7 +244,7 @@ export default function Main() {
 					</div>
 				</div>
 				{gamesPlayed > 0 && (
-					<Datatable columnsDataTable={columnsDataTable} gameData={gameData} optionsPagination={optionsPagination} />
+					<Datatable columnsDataTable={columnsDataTable} gameData={gameData} optionsPagination={settingsForTheTable} />
 				)}
 			</div>
 		</>
