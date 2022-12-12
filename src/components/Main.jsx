@@ -122,6 +122,7 @@ export default function Main() {
 			showAlertForThreeSeconds('success', `Muchos intentos, vamos de nuevo`);
 			return restartGame();
 		}
+
 		// Almacenar los datos parcialmente para pasarselos a la tabla
 		let isWinner;
 		let newValueCurrentValue;

@@ -6,7 +6,6 @@ export default function Error404() {
 		<div className="row">
 			<div className="col-md-2"></div>
 			<div className="col-md-8">
-				{/* <div className="d-flex justify-content-center align-items-center vh-100"> */}
 				<div className="card home border-1">
 					<div className="card-head text-center">
 						<h1 className="mt-3 display-4">404</h1>
@@ -18,7 +17,6 @@ export default function Error404() {
 								Quiero volver
 							</Link>
 						</div>
-						{/* </div> */}
 					</div>
 				</div>
 			</div>
